@@ -82,10 +82,10 @@ body {
 
 /* ---- Intro ---- */
 .intro {
-    text-align: center;
     padding: 40px 0 8px;
-    color: var(--color-text-light);
-    font-size: 1rem;
+    color: var(--color-text);
+    font-size: 1.05rem;
+    line-height: 1.7;
 }
 
 /* ---- Criterion Accordion ---- */
@@ -178,15 +178,20 @@ body {
     transform: rotate(-135deg);
 }
 
-/* Accordion body */
+/* Accordion body: visible by default for SEO crawlers */
 .criterion-body {
+    padding: 0 24px 28px 84px;
+}
+
+/* When JS is active, hide/show via accordion */
+.js-enabled .criterion-body {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.35s ease, padding 0.35s ease;
     padding: 0 24px 0 84px;
 }
 
-.criterion-header[aria-expanded="true"] + .criterion-body {
+.js-enabled .criterion-header[aria-expanded="true"] + .criterion-body {
     max-height: 800px;
     padding: 0 24px 28px 84px;
 }
@@ -354,10 +359,14 @@ body {
     }
 
     .criterion-body {
+        padding: 0 16px 24px 16px;
+    }
+
+    .js-enabled .criterion-body {
         padding: 0 16px 0 16px;
     }
 
-    .criterion-header[aria-expanded="true"] + .criterion-body {
+    .js-enabled .criterion-header[aria-expanded="true"] + .criterion-body {
         padding: 0 16px 24px 16px;
     }
 
